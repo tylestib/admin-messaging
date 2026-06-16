@@ -1,0 +1,695 @@
+﻿ï»¿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Messaging Overview | Amazon Business</title>
+    <style>
+        :root {
+            --ab-orange: #FF9900;
+            --ab-dark: #232F3E;
+            --ab-light-gray: #F7F8FA;
+            --ab-border: #D5D9D9;
+            --ab-text: #0F1111;
+            --ab-link: #007185;
+            --ab-success: #067D62;
+            --ab-warning: #C7511F;
+            --ab-error: #CC0C39;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Amazon Ember", Arial, sans-serif;
+            color: var(--ab-text);
+            line-height: 1.6;
+            background: #fff;
+        }
+
+        header {
+            background: var(--ab-dark);
+            color: #fff;
+            padding: 24px 40px;
+            border-bottom: 3px solid var(--ab-orange);
+        }
+
+        header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        header .subtitle {
+            font-size: 14px;
+            color: #adb1b8;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 32px 40px;
+        }
+
+        nav.toc {
+            background: var(--ab-light-gray);
+            border: 1px solid var(--ab-border);
+            border-radius: 8px;
+            padding: 20px 28px;
+            margin-bottom: 36px;
+        }
+
+        nav.toc h2 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: var(--ab-dark);
+        }
+
+        nav.toc ul {
+            list-style: none;
+            columns: 2;
+            column-gap: 24px;
+        }
+
+        nav.toc li {
+            margin-bottom: 6px;
+        }
+
+        nav.toc a {
+            color: var(--ab-link);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav.toc a:hover {
+            text-decoration: underline;
+            color: var(--ab-warning);
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 22px;
+            color: var(--ab-dark);
+            border-bottom: 2px solid var(--ab-orange);
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+        }
+
+        h3 {
+            font-size: 17px;
+            color: var(--ab-dark);
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        p {
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .callout {
+            background: var(--ab-light-gray);
+            border-left: 4px solid var(--ab-orange);
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 16px 0;
+        }
+
+        .callout.info {
+            border-left-color: var(--ab-link);
+        }
+
+        .callout.warning {
+            border-left-color: var(--ab-warning);
+            background: #FFF8F0;
+        }
+
+        .callout-title {
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            color: var(--ab-dark);
+        }
+
+        ul, ol {
+            margin: 12px 0 12px 24px;
+            font-size: 15px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+
+        th {
+            background: var(--ab-dark);
+            color: #fff;
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 10px 16px;
+            border-bottom: 1px solid var(--ab-border);
+        }
+
+        tr:nth-child(even) {
+            background: var(--ab-light-gray);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-live { background: #E7F7E9; color: var(--ab-success); }
+        .badge-pilot { background: #FFF3CD; color: #856404; }
+        .badge-tbd { background: #F8D7DA; color: var(--ab-error); }
+
+        .steps {
+            counter-reset: step-counter;
+            list-style: none;
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        .steps li {
+            counter-increment: step-counter;
+            padding: 12px 16px 12px 52px;
+            position: relative;
+            background: var(--ab-light-gray);
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 16px;
+            top: 12px;
+            width: 26px;
+            height: 26px;
+            background: var(--ab-orange);
+            color: #fff;
+            border-radius: 50%;
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 16px 0;
+        }
+
+        .col-card {
+            border: 1px solid var(--ab-border);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .col-card h4 {
+            font-size: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .col-card.prohibited h4 { color: var(--ab-error); }
+        .col-card.approved h4 { color: var(--ab-success); }
+
+        .example-msg {
+            background: #FAFAFA;
+            border: 1px solid var(--ab-border);
+            border-radius: 8px;
+            padding: 24px;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+
+        .example-msg h4 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: var(--ab-dark);
+        }
+
+        .example-msg .category {
+            font-weight: 600;
+            margin-top: 12px;
+            margin-bottom: 4px;
+        }
+
+        .faq-item {
+            border: 1px solid var(--ab-border);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-item summary {
+            padding: 14px 20px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            background: var(--ab-light-gray);
+        }
+
+        .faq-item summary:hover {
+            background: #EEF0F3;
+        }
+
+        .faq-item .faq-answer {
+            padding: 14px 20px;
+            font-size: 14px;
+        }
+
+        .doc-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: var(--ab-light-gray);
+            border: 1px solid var(--ab-border);
+            border-radius: 6px;
+            color: var(--ab-link);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        .doc-link:hover {
+            background: #E8EAED;
+        }
+
+        .timeline-bar {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin: 20px 0;
+            font-size: 13px;
+        }
+
+        .timeline-item {
+            flex: 1;
+            text-align: center;
+            padding: 12px 8px;
+            background: var(--ab-light-gray);
+            border: 1px solid var(--ab-border);
+            position: relative;
+        }
+
+        .timeline-item:first-child { border-radius: 6px 0 0 6px; }
+        .timeline-item:last-child { border-radius: 0 6px 6px 0; }
+
+        .timeline-item.active {
+            background: #FFF3E0;
+            border-color: var(--ab-orange);
+            font-weight: 700;
+        }
+
+        .timeline-item .phase {
+            font-weight: 600;
+            display: block;
+        }
+
+        footer {
+            background: var(--ab-light-gray);
+            border-top: 1px solid var(--ab-border);
+            padding: 20px 40px;
+            text-align: center;
+            font-size: 13px;
+            color: #565959;
+        }
+
+        @media (max-width: 700px) {
+            .two-col { grid-template-columns: 1fr; }
+            nav.toc ul { columns: 1; }
+            .timeline-bar { flex-direction: column; }
+            .timeline-item:first-child { border-radius: 6px 6px 0 0; }
+            .timeline-item:last-child { border-radius: 0 0 6px 6px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Admin Messaging Overview</h1>
+    <div class="subtitle">Amazon Business | Internal Reference</div>
+</header>
+
+<div class="container">
+
+    <!-- Table of Contents -->
+    <nav class="toc">
+        <h2>Contents</h2>
+        <ul>
+            <li><a href="#timeline">Timeline &amp; Status</a></li>
+            <li><a href="#overview">Feature Overview</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#qualifying">Qualifying Customers</a></li>
+            <li><a href="#content-guidelines">Content Guidelines</a></li>
+            <li><a href="#example">Example Message</a></li>
+            <li><a href="#testing">Testing Instructions</a></li>
+            <li><a href="#customer-doc">Customer-Facing Documentation</a></li>
+            <li><a href="#faqs">FAQs</a></li>
+        </ul>
+    </nav>
+
+    <!-- Timeline -->
+    <section id="timeline">
+        <h2>Timeline &amp; Status</h2>
+        <div class="timeline-bar">
+            <div class="timeline-item active">
+                <span class="phase">Internal Testing</span>
+                Demo accounts
+            </div>
+            <div class="timeline-item">
+                <span class="phase">Pilot</span>
+                100 customers (US &amp; JP) Ã¢â‚¬â€ Early July
+            </div>
+            <div class="timeline-item">
+                <span class="phase">General Availability</span>
+                TBD
+            </div>
+        </div>
+        <div class="callout info">
+            <div class="callout-title">Current Status</div>
+            Currently testing on internal demo accounts. Pilot of 100 customers (US and JP) is scheduled for early July.
+        </div>
+    </section>
+
+    <!-- Feature Overview -->
+    <section id="overview">
+        <h2>Feature Overview</h2>
+        <p>Admin Messaging enables purchasing administrators to communicate important policies, guidance, and updates directly to buyers within Amazon Business Ã¢â‚¬â€ without relying on external emails or separate channels.</p>
+        <p>ProServe and SAMs manage message creation and updates through the <a href="https://gb-console.corp.amazon.com/admin-announcement" target="_blank"><strong>Guided Buying Console</strong></a>, ensuring all content meets legal guardrails and compliance requirements.</p>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works">
+        <h2>How It Works</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Trigger</th>
+                    <th>Buyer Experience</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>New message is posted</td>
+                    <td>Popup appears on the Business Homepage (BHP) on first visit</td>
+                </tr>
+                <tr>
+                    <td>Subsequent visits</td>
+                    <td>Buyer can review and acknowledge via the Business Notification Panel (BNP)</td>
+                </tr>
+                <tr>
+                    <td>Message content is updated</td>
+                    <td>Popup reappears for all users on the account</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="callout">
+            <div class="callout-title">Key Behavior</div>
+            When an admin changes the message content, the popup reappears for <strong>all</strong> users on the account to ensure visibility of the latest information.
+        </div>
+    </section>
+
+    <!-- Qualifying Customers -->
+    <section id="qualifying">
+        <h2>Qualifying Customers</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Access Type</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Direct Access</td>
+                    <td><span class="badge badge-live">Supported</span></td>
+                </tr>
+                <tr>
+                    <td>Punchout (with SSO)</td>
+                    <td><span class="badge badge-live">Supported</span></td>
+                </tr>
+                <tr>
+                    <td>Punchout (non-SSO)</td>
+                    <td><span class="badge badge-tbd">Testing Needed</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Content Guidelines -->
+    <section id="content-guidelines">
+        <h2>Content Guidelines</h2>
+        <div class="two-col">
+            <div class="col-card prohibited">
+                <h4>&#10006; Prohibited Content</h4>
+                <ul>
+                    <li>References to Amazon competitors or off-Amazon purchases</li>
+                    <li>Prohibited PII (personal addresses, SSNs, personal phone numbers, non-work emails)</li>
+                    <li>Inaccurate information about Amazon Business services</li>
+                </ul>
+            </div>
+            <div class="col-card approved">
+                <h4>&#10004; Approved Content</h4>
+                <ul>
+                    <li>Company purchasing policies and preferences</li>
+                    <li>Internal contact information (Admin/Category Manager)</li>
+                    <li>Product category guidance aligned with contracts</li>
+                    <li>Process requirements for different purchase types</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Example Message -->
+    <section id="example">
+        <h2>Example Admin Message</h2>
+        <div class="example-msg">
+            <h4>Important Purchasing Guidance</h4>
+            <p>Amazon Business is our primary supplier for Office Supplies, Breakroom, and IT Accessories. Prioritize purchases in these categories to maximize contract benefits.</p>
+
+            <p class="category">Restricted Categories (require approval):</p>
+            <ul>
+                <li>Industrial Equipment</li>
+                <li>Laboratory Supplies and Equipment</li>
+                <li>Safety Products</li>
+            </ul>
+
+            <p class="category">Blocked Categories (cannot be purchased):</p>
+            <ul>
+                <li>Medical Equipment and Supplies</li>
+                <li>Drugs and Pharmaceutical Products</li>
+                <li>Apparel and Personal Care Products</li>
+            </ul>
+
+            <p class="category">Purchase Requirements:</p>
+            <ul>
+                <li>Transactions over $5,000: Create a PO before ordering</li>
+                <li>Capital Expenditures: Require Finance approval</li>
+                <li>PCard purchases over $1,000: Need manager pre-approval</li>
+            </ul>
+
+            <p style="margin-top: 16px;"><strong>Questions?</strong> Contact Procurement Admin: John Smith | john.smith@company.com | (555) 123-4567</p>
+            <p><em>Thank you for following these guidelines to maintain cost efficiency and compliance.</em></p>
+        </div>
+    </section>
+
+    <!-- Testing Instructions -->
+    <section id="testing">
+        <h2>Testing Instructions</h2>
+        <ol class="steps">
+            <li><strong>Request access</strong> to the <a href="https://permissions.amazon.com/a/team/amzn1.abacus.team.rygdsur6qu5ygfzv37ia" target="_blank">Guided Buying Console permission list</a>. In the reason field, enter your demo account Customer ID (CID). Requesting access will allow your alias to see the Admin Messaging tab. The permission list owners will then add the CID of your demo account to a weblab.<br><br><span style="background: #FFF3E0; border: 1px solid #FF9900; border-radius: 4px; padding: 4px 10px; font-weight: 600; display: inline-block; margin-top: 4px;">&#9201; ProServe will contact you when your access is ready. SLA: 48 hour turnaround.</span></li>
+            <li><strong>Navigate</strong> to the <a href="https://gb-console.corp.amazon.com/admin-announcement" target="_blank">Guided Buying Console</a> and select the <strong>Admin Messaging</strong> tab.</li>
+            <li><strong>Enter the BAID</strong> (Business Account ID).</li>
+            <li><strong>Enter the customer message.</strong> Tip: Use Kiro/Quick to format the message in Markdown.</li>
+            <li><strong>Publish</strong> the message.</li>
+        </ol>
+    </section>
+
+    <!-- Customer-Facing Documentation -->
+    <section id="customer-doc">
+        <h2>Customer-Facing Documentation</h2>
+        <p>The following document is intended to be shared with customers. It explains Admin Messaging from the buyer's perspective.</p>
+        <a href="data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64,UEsDBAoAAAAAALB60FwAAAAAAAAAAAAAAAAFAAAAd29yZC9QSwMECgAAAAAAsHrQXAAAAAAAAAAAAAAAAAsAAAB3b3JkL19yZWxzL1BLAwQKAAAACACwetBcxppPZfoAAAAhBAAAHAAAAHdvcmQvX3JlbHMvZG9jdW1lbnQueG1sLnJlbHOtk91OAyEQhV+FcO+yrVqNKe2NMemtWR+AsrM/cRkITI19ezF2KzUN8YLLOTOc+TI5rLefZmIf4MNoUfJFVXMGqG07Yi/5W/Ny88i3m/UrTIriRBhGF1h8gkHygcg9CRH0AEaFyjrA2OmsN4pi6XvhlH5XPYhlXa+ETz34pSfbtZL7XbvgrDk6+I+37bpRw7PVBwNIV1aIQMcJQnRUvgeS/Keuog8X19cvS67Hg9mDj3f8JThLOYjbkhCdtYSW0jOcpRzEXUkIwPYPw6zkEO6LZgGI4t3TNJyUHMKqJIK25ruVIMxKDuGhbBqQGrWfIE3DSZohxMVf33wBUEsDBAoAAAAIALB60Fwsg70vFAcAAEwhAAARAAAAd29yZC9kb2N1bWVudC54bWzlWs1y2zYQfhWMDj05piQ7jqPGzrhOk2qmTj1jdzI9QuCKxBgEGACUzJzyEHnCPEl3AVKiLTWR5MnUGV8s/gDfLr5d7A/oV69vC8VmYJ00+qQ32O/3GGhhUqmzk97f12+fHfeY81ynXBkNJ70aXO/16av5KDWiKkB7VojRONPG8onC9/PBIZsPnrN5OTjsMQTXbjQvxUkv974cJYkTORTc7RdSWOPM1O8LUyRmOpUCkrmxaTLsD/rhqrRGgHOoyTnXM+5auGIVzZSg8eXU2IJ7vLVZUnB7U5XPEL3kXk6kkr5G7P5RC2NOepXVowbi2UIhmjKKCjU/7Qy7idw45U3DTpCYWFCog9Eul+VyGbui4cu8BZl9axGzQi1NMDh8mA3eWD7HnyXgJuqncVKhoubfRhz0N7AIQSxmbKLCXZmtJgWXeil4J2o65A6ebwcwvA9QZg8zzjtrqnKJJh+GNtY3Cyza81tgNUbuLs09TJmrnJeLHShuNwNr/I7wDhORc+vhdokx2BrkefIyOV4FGu4AhAscDlahDraGOkpIqxWgDX35HhBqtYK0oVPfR1qzuKPdkIarSC92QzpYRTreDWnFnTCQ3OwAJZd7jBcH6dYIL5LCpKAOlsFwcCRgw+3R7rXjZrMmYrkewpEb6tPiHC1wZFef3ZTpALjUp/lWKMM2Nic0l3uec5d3EbcLZ7hfW7i6QI6o8JmYtKbfMvy5tOHnytcK2Hw04+qkdy29gl5y+ipZDAh/POkxciUXqEVpwYGdQe/0LC2kZhcY7niG1qVZPsy1EeHbwq6qid9SXsE/Gc1+qzC8otAt5f0BnIrDwebyPuTcs7Fj99b5+ruCCQkHomQ+9YDV12DYXyPWNqM/tSoOhzSKnpy7u8+SxejNbMGkY5xNgfvKAvO0ENBU6DpWm8oyLDC4lp9CcfcLL4371bGyshgiKHUxTmjSecu9sY55w9DFikpLwT0wWZTGYmntWWmUFBLcHssqmXItYI9hyc2qEl0YZaXSgvCqJoRJVWO1zubS56jpPVvuP0ZOr3NkEbRDCl3DITYcNbYTDFewwiO1G7XDV1TFQcr4xFS+y2qoDVJCQ5ZKvJvhKGI0MzaQ6LAKJB9FYTgoNyp1kc8bqNEC2nPh3dfPX4hDwsbyvKbhKBtukRTNFcPQIJVDxZiDkluy19J2pCVqozWoDSh/6P75w8zZ2LMPxt58f7M+jj2TgpOZRrOgw2KWkmjvjrtH00Yalx6NfuFzYFZmOV7JAvcAGYjRFirQIql0tirbSThUWobB+WaqzHy0pRH+xE15iVbNLC/zuHBdFXGkVDPVjusv3o3TBSsNKYsJK5Qf/WjGP+SgMS5pmLMi0A5EOoYfD+kek562BXDilMJXacqqZNp4OW2dl4ieSusi0Tgm2IDNpJPehbf3AgvLTYH7IINt3f0nZ/qM5ARC0Au9RDecSaAabK91W8E1BpDAXBjXGgTdmes68otxyFRZHt4vGH3fNcglx1jyxLgdT+8QRoGZzpPQk2PeS9mkjunhTh7dC7OiU8+lUsh+dHcKCzHNMI6PG/s4gDBBUSa9E3seZbJ8bxhmJ3IJ5MHCxwpTfyCiWc4EMHGmweOCH3Yp3GfXeHNno0vXXTG6L6XBbnS+ASgjyR54gcTFNyHyispaskg39zaVyo/PeqFq/MdU7ILX7ArgMRrrek2gDDRSXoo1WuPAQpgKmVxTEFrUtjFgMCeWHcZG26yURvtNlsU6qkBWpBaqSuGJJb9zOtHFyLrGK4N348gpoN8K2La1+cmJuQwLJ9/BqhWfeisFRVGskNNK+E6J/LR4uVptB4KjxN6BqzbM0gn7E6NmrJt2p+mK7pTmeBV6rSpSwz5W6FP0FeNpcfSuacmpPWxiDl7bFCg2s8tzbtNOS/oY09QZVkNrqiyBhRPFB9oL9D0EU4+Otca6BiDkNezzhFEKW3IbfWSTFNfWZAI9iYs6yMOWG2bE6o8vJN5W4fDmwqSLsuhRWuk/i4loJ3fHTi6UuPc779a4CDGBnKspM9N1VcRfbbkX65TF8dIm1kwB+cCHaBGq0LoBg3rQaqKkyxuvaixPDWkwvgcUgllKobjmBG2n2vJ/sM54DZHYgEMaSIkNS6eMayzx9fMXV4mc+vDQIyIvaw+nqJNv0nO9SN3kqHsUY9p2aE2QRgGlAopI6CQoiI6z2srxrLHh77cgKi9nsT+oY9MkDIYwqUlr2u10mpW1BVS0YXjeim7Dh2kO7KJ7rbeUQ+s2Wze7Iu7naKDBS/ryPh/leH10fHBM11SLaI8sG4sOJn00TpldYC+HuKbEsYeHfRoaToWWtxPjvSmW9wqmnbc5xgjyihf9IGZqjO/cZpUPt/1W3PuquK5LCHepEe+spPSj0MUvpReo8MEix7RLS9rPAMnyHyFO/wVQSwMECgAAAAgAsHrQXCWnmluGAwAA0hUAAA8AAAB3b3JkL3N0eWxlcy54bWzlWGtP2zAU/StRvo+8C1QU1BUqkKYN8dA+u47TeCR2ZjuU7tfPeTbNg75ShDa+UPs6J/eceyxf5+LqLQyUV8Q4pmSkGie6qiACqYvJfKQ+P02/nKkKF4C4IKAEjdQl4urV5cViyMUyQFwJ4fBuTigDs0BGF4atLAxHVSQq4cMQjlRfiGioaRz6KAT8hEaIyKBHWQiEHLK5FgL2EkdfIA0jIPAMB1gsNVPXBwUM2waFeh6G6JrCOEREpM9rDAUSkRLu44gXaItt0BaUuRGjEHEulQiDDC8EmJQwht0ACjFklFNPnEgyeUYplHzc0NNfYbACcHYDMAuARH6XwmvkgTgQPBmye5YP81H6b0qJ4MpiCDjEeKSOGQby9Ysh5JUBAlyMOQaVKX9MeLleS6v9R06/gmCkmmYxM+Hrc1r+Yq2eTlQfpc9HAEppk+w8gWSJDVPPUaIcpfqc1qCcGlA+LpaRdF4EGJgzEPlJ/mnozh2pT1gEKNWLgBAV6WazKYsZ4Mj9QYrI98QCOWWC3kTb/O9p6hOtIvRKHWfQVCebq6iTprcthVsEks1oNFjkAcXokwmkAWVlWW9O7a9O3QBWiwGsugH2oWh2UjQ/mKLZUkWzjypanRSto1E0pvb16VmDot1C0e6Bot1J0e6TIk4HeMK1d2p6IBWnk4rzAYY8MPlBZ/KDD7Davsk/CkbJvJF6Pt1j3rMMK/XPvsl+w1zcl5F6zklUWYU35b7KsTsN6Es4KE/L9YLLGAsweWlWvIy0vT0/TMsUk24hWxjje4Ypk31Ysfb8PI8QH7vop4/Is8TqNILuDKxJfjDFxWTSSWXn7mbB25lOKRWECvSAPMRkm9o82r18hcLKJX1R5yjEt9h1EdmghOymxTjA8/JtPJZl4JDhSByyNwr2T9Ll3cRFEt1ktsQTxXwVdiJlP1yHrg5PT+jIV6PkqCkHD3FycwCxoNX2r6W3yvrD2pGl9+Gnknpd1WKBkqxQVupsbacuoXsz2zHluSHu+7sNZQv+xc2Wc2/dawXtnbdaBfQ/22l15nVJ83gv+6xaus+1zfq/pFY7my4zDPKMf8ECASKSFKjNBNW+qN6aWubUuqlfJOyWi4R90EXiMZ6JVknKQB+qWPousqwJ4aR/e30Y+YxX//c+yMjRDHmUoVKwwx1ztNv1sT8gdAl1tqaTubtO0+n5ua4fYqjiF7/8C1BLAwQKAAAAAACwetBcAAAAAAAAAAAAAAAACQAAAGRvY1Byb3BzL1BLAwQKAAAACACwetBcNaObrDYBAACDAgAAEQAAAGRvY1Byb3BzL2NvcmUueG1spZLRasMgFIZfJXifGBMWiiQWttGrFQZr2did6Gkri0bUNe3bz6Rt2rHe7VL/z4//nKSeH3Sb7MF51ZkGkSxHCRjRSWW2DVqvFukMJT5wI3nbGWjQETyas1pYKjoHr66z4IICn0SP8VTYBu1CsBRjL3aguc8iYWK46ZzmIR7dFlsuvvgWcJHnFdYQuOSB40GY2smIzkopJqX9du0okAJDCxpM8JhkBF/ZAE77uw/G5IbUKhwt3EUv4UQfvJrAvu+zvhzR2J/gj+XL2zhqqsywKQGI1VJQ4YCHzrG1SQ3XIGt8czkssOU+LOOmNwrk4/GG+5sNuIO9Gr4SIyMxHevz0Cc3yCSWpafRLsl7+fS8WiBW5EWV5lVKqhV5oAWhZZkVs/JzqPbLcZXqc4l/WS8SNjb//eOwH1BLAwQKAAAACACwetBcvGr/250CAABgDwAAEgAAAHdvcmQvbnVtYmVyaW5nLnhtbNVXy47TMBT9lcgSy6mTNH0omswIGA0q4iUxfICbuK01fsl2Erpjz4IdbBGfxpdgp036YBjadAaFlev7OPf4Xt/r5vzyI6NegZUmgicg6PnAwzwVGeHzBHy4uT4bA08bxDNEBccJWGINLi/Oy5jnbIqVNfNYGk/mXCg0pdagDCKvDAZeKYMIeBad67iUaQIWxsgYQp0uMEO6x0iqhBYz00sFg2I2IymGpVAZDP3Ar35JJVKstY3xHPEC6RqO/Y4mJOZWOROKIWO3ag4ZUre5PLPoEhkyJZSYpcX2hzWMSECueLyGOGsIOZd4RWi91B7qkLgrlyuR5gxzU0WEClPLQXC9IHJzjLZoVrmoQYr7DlEwuilBEJ1WgyuFSrtsAA+hn62cGF0xvx8x8A+oiINoPA6hsBuzZsIQ4ZvArVKzldxgcBxAuA8g56cV54USudygkdPQJvy2wXJNfwTWusjbR9OnkXm/QBIDN3LQVBuFUvMmZ97ObpLZ0QXc2IkVttNKOeFqOj2dGayeKYxuE+BXKCynhrzCBaY3S4ktUIGoZbicKpK9djrqdAA6W1pQa0Ds4ryrAMa2oe3lAruQzqaKV8MEKz87HK9ZI5zmlGLTIN7gj43q57cvjfxlWkspnq3N5TvlFsIzq3PiBIxCxyReID6vhnR/6DtbuDaGFdY++eBxyH8+lnwQRS3Yh4/C/uv3Y9mHwbAF+35HLk44HrdgH3Xk5liyLdgPOnJzon6brh125OYM/DZdO+oK+1Gbrh13hP0wOqxr4c6L+NfnMvw/n8tPP46u/t7VDUcPkb5+d9OX4ZQwRO/M35Og98/yx6u88frf2V5KJ9neISzKW/sdatOCt5LQHHlLt/GCO27Vnt8RPPxz8PDhg8Otb+OLX1BLAwQKAAAAAACwetBcAAAAAAAAAAAAAAAABgAAAF9yZWxzL1BLAwQKAAAACACwetBcH6OSluYAAADOAgAACwAAAF9yZWxzLy5yZWxzrZLPSgMxEIdfJcy9O9tWRKRpL1LoTaQ+QEhmd4PNHyZTrW9vKIpW6tpDj5n85ss3QxarQ9ipV+LiU9QwbVpQFG1yPvYanrfryR2slosn2hmpiTL4XFRtiUXDIJLvEYsdKJjSpEyx3nSJg5F65B6zsS+mJ5y17S3yTwacMtXGaeCNm4Lavme6hJ26zlt6SHYfKMqZJ34lKtlwT6LhLbFD91luKhbwvM3scpu/J8VAYpwRgzYxTTLXbhZP5VuoujzWcjkmxoTm11wPHYSiIzeuZHIeM7q5ppHdF0nhnxUdM19KePIxlx9QSwMECgAAAAgAsHrQXKCOjqWaAQAAOAgAABMAAABbQ29udGVudF9UeXBlc10ueG1stVbLTsMwEPyVKFfUuHBACLXlwOMIHOADXHuTGmKvZW8K/D3r9CEFmlKguWU9MzsT70bK5Ord1tkSQjTopvlpMc4zcAq1cdU0f366G13kV7PJ04eHmDHVxWm+IPKXQkS1ACtjgR4cIyUGK4nLUAkv1ausQJyNx+dCoSNwNKLUI59NbqCUTU3Z9eo8tZ7mxia+d1We3b7z8SpOqsVexYuHrqQ9+LXmJ8nc+o4i1fsVlSk7ilTvV8RldcL32FHxWa9Kel8bJYmJYun0lzmM1jMoAtQtJy6Mj98MGI0HOXwVpvqPybAsjQKNqrEsKXBeNpHZoO+4SccENVF7bQ+8ocFo+I/PGwbtAyqIkZfb1sUWsdK41c08ykD30nJvkehiS1m/7iA5In3UEHcHWGH/st8sgsIAIzb2EMjs8OOAj4xGkYjHfGHVREJ7mHVLPaY5pG3SoA+y59aDTto1dg6Bn3cPewsPGqJEJIfUt3FbeNAQPJM9GTbosJ8dEPFT34e3RgeNoNAmoCfCBh14G7iRnNfQtw1reBNCtL8Cs09QSwMECgAAAAgAsHrQXFh52yKSAAAA5AAAABMAAABkb2NQcm9wcy9jdXN0b20ueG1snc5BCsIwEIXhq5TZ21QXIqVpN+LaRXUf0mkbaGZCJi329kYED+Dy8cPHa7qXX4oNozgmDceyggLJ8uBo0vDob4cLFJIMDWZhQg07CnRtc48cMCaHUmSARMOcUqiVEjujN1LmTLmMHL1JecZJ8Tg6i1e2q0dK6lRVZ2VXSewP4cfB16u39C85sP28k2e/h+yp9g1QSwMECgAAAAgAsHrQXOL8ndqTAAAA5gAAABAAAABkb2NQcm9wcy9hcHAueG1snc5BCsIwEIXhq4TsbaoLkdK0G3HtoroPybQNNDMhE0t7eyOCB3D5+OHjtf0WFrFCYk+o5bGqpQC05DxOWj6G2+EiBWeDziyEoOUOLPuuvSeKkLIHFgVA1nLOOTZKsZ0hGK5KxlJGSsHkMtOkaBy9hSvZVwDM6lTXZwVbBnTgDvEHyq/YrPlf1JH9/OPnsMfiqe4NUEsDBAoAAAAIALB60FycicmRzgEAAK0GAAASAAAAd29yZC9mb290bm90ZXMueG1s1ZTNTuMwEMdfJfK9dVIBWkVNOYBA3BDdfQDjOI2F7bFsJ6Fvv5PETbosqgo9cYm/Zn7zn5nY69t3rZJWOC/BFCRbpiQRhkMpza4gf34/LH6RxAdmSqbAiILshSe3m3WXVwDBQBA+QYLxeWd5QeoQbE6p57XQzC+15A48VGHJQVOoKskF7cCVdJVm6TCzDrjwHsPdMdMyTyJO/08DKwweVuA0C7h0O6qZe2vsAumWBfkqlQx7ZKc3BwwUpHEmj4jFJKh3yUdBcTh4uHPiji73wBstTBgiUicUagDja2nnNL5Lw8P6AGlPJdFqRaYWZFeX9eDesQ6HGXiO/HJ00mpUfpqYpWd0pEdMHudI+DfmQYlm0syBv1Wao+Jm118DrD4C7O6y5jw6aOxMk5fRnszbxOov9hdYscnHqfnLxGxrZvEGap4/7Qw49qpQEbYswaon/W9Njp+cpMvD3qKFF5Y5FsAR3JJlQRbZYGiHz7PrB28ZxwhowKog8HanvbGSfc6rq2nx0vQhWROA0M2aTu7jJ863Ya/66C1TBXmIal5EJRy+mSI6RuNqPo77E26SPR3QQTOdvT5Nl4MJ0jTDK7P9mHr6EzL/NINTVTha+M1fUEsDBAoAAAAIALB60FzSd/y3bQAAAHsAAAAdAAAAd29yZC9fcmVscy9mb290bm90ZXMueG1sLnJlbHNNjEEOAiEMRa9CuneKLowxw8xuDmD0AA1WIA6FUGI8vixd/rz3/rx+824+3DQVcXCcLBgWX55JgoPHfTtcYF3mG+/Uh6ExVTUjEXUQe69XRPWRM+lUKssgr9Iy9TFbwEr+TYHxZO0Z2/8H4PIDUEsDBAoAAAAIALB60Fw/So6NwQEAAJIGAAARAAAAd29yZC9lbmRub3Rlcy54bWzNlNtu4yAQhl/F4j7BjrrVyorTix5Wvaua3QegGMeowCDA9ubtd3wIzrZVlDY3vTGnmW/+mTGsb/5qlbTCeQmmINkyJYkwHEppdgX58/th8ZPcbNZdLkxpIAifoL3xeWd5QeoQbE6p57XQzC+15A48VGHJQVOoKskF7cCVdJVm6TCzDrjwHuG3zLTMkwmn39PACoOHFTjNAi7djmrmXhu7QLplQb5IJcMe2en1AQMFaZzJJ8QiCupd8lHQNBw83DlxR5c74I0WJgwRqRMKNYDxtbRzGl+l4WF9gLSnkmi1IrEF2dVlPbhzrMNhBp4jvxydtBqVnyZm6Rkd6RHR4xwJ/8c8KNFMmjnwl0pzVNzsx+cAq7cAu7usOb8cNHamyctoj+Y1soz4FGtq8nFq/jIx25pZvIGa5487A469KFSELUuw6kn/W5OjFyfp8rC3aOCFZY4FcAS3ZFmQRTbY2eHz5PrBW8YxABqwKgi83GlvrGSf8uoqLp6bPiJrAhC6WdPoPn6m+TbsVR+9Zaog96OYZ1EJh++jmPwmWxFPp+0Ii6LjAR0U0+j0UaocTJCmGR6Y7du00++f9Yf6T1RgnvvNP1BLAwQKAAAACACwetBc0nf8t20AAAB7AAAAHAAAAHdvcmQvX3JlbHMvZW5kbm90ZXMueG1sLnJlbHNNjEEOAiEMRa9CuneKLowxw8xuDmD0AA1WIA6FUGI8vixd/rz3/rx+824+3DQVcXCcLBgWX55JgoPHfTtcYF3mG+/Uh6ExVTUjEXUQe69XRPWRM+lUKssgr9Iy9TFbwEr+TYHxZO0Z2/8H4PIDUEsDBAoAAAAIALB60FxNn8rKoQEAAHMFAAARAAAAd29yZC9zZXR0aW5ncy54bWyllN1u2zAMhV/F0H0iu1iLwahbdCvW9WLYRbcHYCXZFiJRgiTby9uPjuO4P0CRNFeSQfE7R6TF69t/1mS9ClE7rFixzlmmUDipsanY3z8/Vl9ZFhOgBONQVWyrIru9uR7KqFKiQzEjAMZy8KJibUq+5DyKVlmIa6tFcNHVaS2c5a6utVB8cEHyi7zIdzsfnFAxEug7YA+R7XH2Pc15hRSsXbCQ6DM03ELYdH5FdA9JP2uj05bY+dWMcRXrApZ7xOpgaEwpJ0P7Zc4Ix+hOKfdOdFZh2inyoAx5cBhb7ZdrfJZGwXaG9B9doreGHVpQfDmvB/cBBloW4DH25ZRkzeT8Y2KRH9GREXHIOMbCa83ZiQWNi/CnSvOiuMXlaYCLtwDfnNech+A6v9D0ebRH3BxY47s+gbVv8surxfPMPLXg6QVaUT426AI8G3JELcuo6tn4W7Nx4kgdvYHtNxCbhmqBcpfGx5DqFd6h/C3lTwWSplk2lD2YitVgomK7M9OUWHZP0wCbTxaXjLYIlqRfDZRfTqox1IUTSj5K8kWTL/Py5j9QSwMECgAAAAgAsHrQXIuGOcTFAQAAxggAABEAAAB3b3JkL2NvbW1lbnRzLnhtbKXU3XLiIBgG4FtxOFeSWFM307Qnne30eNsLoIDCNPwMoNG7X1IlSZedToJH6iTfk5fXwMPTSTSLIzWWK1mDfJWBBZVYES73NXh/+73cgoV1SBLUKElrcKYWPD0+tBVWQlDp7MID0lb4VAPmnK4gtJhRgexKcGyUVTu38vdCtdtxTCExqPU2LLL8DmKGjKMn0Bv5bGQDf8FtDBUJUJ7BIo+p9WyqhF2qCLpLgnyqSNqkSf9ZXJkmFbF0nyatY2mbJkWvk8ARpDSV/uJOGYGc/2n2UCDzedBLD2vk+AdvuDt7MysDg7j8TEjkp3pBrMls4R4KRWizJkFRNTgYWV3nl/18F726zF8/woSZsv7LyLPCh247f60cGtr4LpS0jGvb15mq+YssIMefFnEUTbiv1fnE7dIqQ7q+sq9v2ihMrfUdPl+qHMAp8a/9i+aS/Gcxzyb8Ix3RT0yJ8P2ZIYnwb+Hw4KRqRuXmEw+QABQRUGI68cAPxvZqQDzs0M7hE7dGcMre4WTkpIUZAZY4wmYpRegVdrPIIYYsG4t0XqhNz53FqCO9v20jvBh10IPGb9Neh2OtlfMWmJX/tq7tbWH+MKQpgI9/AVBLAwQKAAAACACwetBc0nf8t20AAAB7AAAAHAAAAHdvcmQvX3JlbHMvY29tbWVudHMueG1sLnJlbHNNjEEOAiEMRa9CuneKLowxw8xuDmD0AA1WIA6FUGI8vixd/rz3/rx+824+3DQVcXCcLBgWX55JgoPHfTtcYF3mG+/Uh6ExVTUjEXUQe69XRPWRM+lUKssgr9Iy9TFbwEr+TYHxZO0Z2/8H4PIDUEsDBAoAAAAIALB60Fxj7V7WHQEAAEMDAAASAAAAd29yZC9mb250VGFibGUueG1sndHdbsIgFAfwVyHcK7WZjWms3ixLdr89AAK1RA6n4eDUtx+ttmvijd0VEPL/5Xxs91dw7McEsugrvlpmnBmvUFt/rPj318diwxlF6bV06E3Fb4b4fre9lDX6SCylPZWgKt7E2JZCkGoMSFpia3z6rDGAjOkZjgJkOJ3bhUJoZbQH62y8iTzLCv5gwisK1rVV5h3VGYyPfV4E45KInhrb0qBdXtEuGHQbUBmi1DG4uwfS+pFZvT1BYFVAwjouUzOPinoqxVdZfwP3B6znAfkTUChznWdsHoZIyalj9TynGB2rJ87/ipkApKNuZin5MFfRZWWUjaRmKpp5Ra1H7gbdjECVn0ePQR5cktLWWVoc62F2n1x3sPsy2NACF7tfUEsDBAoAAAAIALB60FzSd/y3bQAAAHsAAAAdAAAAd29yZC9fcmVscy9mb250VGFibGUueG1sLnJlbHNNjEEOAiEMRa9CuneKLowxw8xuDmD0AA1WIA6FUGI8vixd/rz3/rx+824+3DQVcXCcLBgWX55JgoPHfTtcYF3mG+/Uh6ExVTUjEXUQe69XRPWRM+lUKssgr9Iy9TFbwEr+TYHxZO0Z2/8H4PIDUEsBAhQACgAAAAAAsHrQXAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAQAAAAAAAAAHdvcmQvUEsBAhQACgAAAAAAsHrQXAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAQAAAAIwAAAHdvcmQvX3JlbHMvUEsBAhQACgAAAAgAsHrQXMaaT2X6AAAAIQQAABwAAAAAAAAAAAAAAAAATAAAAHdvcmQvX3JlbHMvZG9jdW1lbnQueG1sLnJlbHNQSwECFAAKAAAACACwetBcLIO9LxQHAABMIQAAEQAAAAAAAAAAAAAAAACAAQAAd29yZC9kb2N1bWVudC54bWxQSwECFAAKAAAACACwetBcJaeaW4YDAADSFQAADwAAAAAAAAAAAAAAAADDCAAAd29yZC9zdHlsZXMueG1sUEsBAhQACgAAAAAAsHrQXAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAQAAAAdgwAAGRvY1Byb3BzL1BLAQIUAAoAAAAIALB60Fw1o5usNgEAAIMCAAARAAAAAAAAAAAAAAAAAJ0MAABkb2NQcm9wcy9jb3JlLnhtbFBLAQIUAAoAAAAIALB60Fy8av/bnQIAAGAPAAASAAAAAAAAAAAAAAAAAAIOAAB3b3JkL251bWJlcmluZy54bWxQSwECFAAKAAAAAACwetBcAAAAAAAAAAAAAAAABgAAAAAAAAAAABAAAADPEAAAX3JlbHMvUEsBAhQACgAAAAgAsHrQXB+jkpbmAAAAzgIAAAsAAAAAAAAAAAAAAAAA8xAAAF9yZWxzLy5yZWxzUEsBAhQACgAAAAgAsHrQXKCOjqWaAQAAOAgAABMAAAAAAAAAAAAAAAAAAhIAAFtDb250ZW50X1R5cGVzXS54bWxQSwECFAAKAAAACACwetBcWHnbIpIAAADkAAAAEwAAAAAAAAAAAAAAAADNEwAAZG9jUHJvcHMvY3VzdG9tLnhtbFBLAQIUAAoAAAAIALB60Fzi/J3akwAAAOYAAAAQAAAAAAAAAAAAAAAAAJAUAABkb2NQcm9wcy9hcHAueG1sUEsBAhQACgAAAAgAsHrQXJyJyZHOAQAArQYAABIAAAAAAAAAAAAAAAAAURUAAHdvcmQvZm9vdG5vdGVzLnhtbFBLAQIUAAoAAAAIALB60FzSd/y3bQAAAHsAAAAdAAAAAAAAAAAAAAAAAE8XAAB3b3JkL19yZWxzL2Zvb3Rub3Rlcy54bWwucmVsc1BLAQIUAAoAAAAIALB60Fw/So6NwQEAAJIGAAARAAAAAAAAAAAAAAAAAPcXAAB3b3JkL2VuZG5vdGVzLnhtbFBLAQIUAAoAAAAIALB60FzSd/y3bQAAAHsAAAAcAAAAAAAAAAAAAAAAAOcZAAB3b3JkL19yZWxzL2VuZG5vdGVzLnhtbC5yZWxzUEsBAhQACgAAAAgAsHrQXE2fysqhAQAAcwUAABEAAAAAAAAAAAAAAAAAjhoAAHdvcmQvc2V0dGluZ3MueG1sUEsBAhQACgAAAAgAsHrQXIuGOcTFAQAAxggAABEAAAAAAAAAAAAAAAAAXhwAAHdvcmQvY29tbWVudHMueG1sUEsBAhQACgAAAAgAsHrQXNJ3/LdtAAAAewAAABwAAAAAAAAAAAAAAAAAUh4AAHdvcmQvX3JlbHMvY29tbWVudHMueG1sLnJlbHNQSwECFAAKAAAACACwetBcY+1e1h0BAABDAwAAEgAAAAAAAAAAAAAAAAD5HgAAd29yZC9mb250VGFibGUueG1sUEsBAhQACgAAAAgAsHrQXNJ3/LdtAAAAewAAAB0AAAAAAAAAAAAAAAAARiAAAHdvcmQvX3JlbHMvZm9udFRhYmxlLnhtbC5yZWxzUEsFBgAAAAAWABYAfAUAAO4gAAAAAA==" download="Admin Messaging - Customer Facing.docx" class="doc-link" style="margin-bottom: 16px;">&#128229; Download Customer-Facing Document (.docx)</a>
+
+        <details class="faq-item" style="margin-top: 16px;" open>
+            <summary>&#128196; Customer-Facing Document: Admin Messaging</summary>
+            <div class="faq-answer">
+                <h3>What Is Admin Messaging?</h3>
+                <p>Admin Messaging is a feature that enables your organization's purchasing administrators to communicate important policies, guidance, and updates directly to buyers within Amazon Business.</p>
+                <p>This ensures that everyone in your organization stays informed about purchasing procedures, approved categories, spending thresholds, and key contactsÃ¢â‚¬â€without relying on external emails or separate communication channels.</p>
+
+                <h3>How It Works</h3>
+                <ol>
+                    <li>When a new message is posted, it appears as a popup notification the first time a buyer visits the Amazon Business homepage.</li>
+                    <li>After the initial viewing, buyers can revisit the message at any time through the Business Notification Panel.</li>
+                    <li>If the message content is updated by your administrator, the popup will reappear to ensure all buyers see the latest information.</li>
+                </ol>
+                <p>No action is required by buyers beyond reviewing the message. The notification is informational and designed to keep your team aligned with current purchasing policies.</p>
+
+                <h3>What You May See</h3>
+                <p>The Amazon Business team works with your account administrators to craft messaging tailored to your organization. Messages may include:</p>
+                <ul>
+                    <li>Company purchasing policies and preferences</li>
+                    <li>Preferred or restricted product categories</li>
+                    <li>Spending thresholds and approval requirements</li>
+                    <li>Internal contact information for procurement questions</li>
+                    <li>Guidance on purchase order or PCard procedures</li>
+                </ul>
+                <p>All message content is created and maintained by the Amazon Business team in collaboration with your account administrators to ensure accuracy and relevance.</p>
+
+                <h3>Future Modifications</h3>
+                <p>If your organization needs to update messaging contentÃ¢â‚¬â€such as revised spending thresholds, new category restrictions, or updated contact informationÃ¢â‚¬â€please reach out to your Account Executive. They will coordinate the changes and publish the updated message on your behalf.</p>
+            </div>
+        </details>
+    </section>
+
+    <!-- FAQs -->
+    <section id="faqs">
+        <h2>FAQs</h2>
+
+        <details class="faq-item">
+            <summary>What is the character limit?</summary>
+            <div class="faq-answer">
+                <p>The character limit for Admin Messages is 1,000 characters. Note: spaces count as characters, so factor that into your message length.</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>What are the known limitations?</summary>
+            <div class="faq-answer">
+                <ul>
+                    <li>Links embedded in the message will open in the same tab. We are currently testing to see if we can get links to open in a new tab.</li>
+                    <li>Images and logos are not supported.</li>
+                </ul>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>What is the process for the pilot?</summary>
+            <div class="faq-answer">
+                <p>We are creating a SIM managed by ProServe. You will create the SIM and enter all required information (CID, BAID, proposed messaging). The SIM will be reviewed and approved by ProServe. Once approved, you will have access to the Guided Buying Console for that BAID.</p>
+                <br><span style="background: #FFF3E0; border: 1px solid #FF9900; border-radius: 4px; padding: 4px 10px; font-weight: 600; display: inline-block;">&#9201; SLA: 48 hours to approve the SIM.</span>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>What happens when the CSM/SAM is no longer supporting the customer?</summary>
+            <div class="faq-answer">
+                <p>The customer will be provided with a one-pager on Admin Messaging and directions to work with their Account Executive to make modifications. The Account Executive will submit a SIM for the modifications.</p>
+                <p style="margin-top: 12px;"><strong>Customer-facing document to share:</strong></p>
+                <details style="margin-top: 8px;">
+                    <summary style="cursor: pointer; font-weight: 600; font-size: 14px; padding: 10px 16px; background: #FAFAFA; border: 1px solid #D5D9D9; border-radius: 6px;">&#128196; View Customer-Facing Document</summary>
+                    <div style="background: #FAFAFA; border: 1px solid #D5D9D9; border-top: none; border-radius: 0 0 6px 6px; padding: 16px; font-size: 13px;">
+                    <h4 style="margin-bottom: 12px;">Admin Messaging Ã¢â‚¬â€ Amazon Business</h4>
+
+                    <p><strong>What Is Admin Messaging?</strong></p>
+                    <p>Admin Messaging is a feature that enables your organization's purchasing administrators to communicate important policies, guidance, and updates directly to buyers within Amazon Business.</p>
+                    <p>This ensures that everyone in your organization stays informed about purchasing procedures, approved categories, spending thresholds, and key contactsÃ¢â‚¬â€without relying on external emails or separate communication channels.</p>
+
+                    <p><strong>How It Works</strong></p>
+                    <p>Admin Messaging is designed to deliver important information to buyers at the right time, with minimal disruption to their workflow:</p>
+                    <ol>
+                        <li>When a new message is posted, it appears as a popup notification the first time a buyer visits the Amazon Business homepage.</li>
+                        <li>After the initial viewing, buyers can revisit the message at any time through the Business Notification Panel.</li>
+                        <li>If the message content is updated by your administrator, the popup will reappear to ensure all buyers see the latest information.</li>
+                    </ol>
+                    <p>No action is required by buyers beyond reviewing the message. The notification is informational and designed to keep your team aligned with current purchasing policies.</p>
+
+                    <p><strong>What You May See</strong></p>
+                    <p>The Amazon Business team works with your account administrators to craft messaging tailored to your organization. Messages may include:</p>
+                    <ul>
+                        <li>Company purchasing policies and preferences</li>
+                        <li>Preferred or restricted product categories</li>
+                        <li>Spending thresholds and approval requirements</li>
+                        <li>Internal contact information for procurement questions</li>
+                        <li>Guidance on purchase order or PCard procedures</li>
+                    </ul>
+                    <p>All message content is created and maintained by the Amazon Business team in collaboration with your account administrators to ensure accuracy and relevance.</p>
+
+                    <p><strong>Future Modifications</strong></p>
+                    <p>The Amazon Business team creates and maintains all Admin Messaging content on behalf of your organization. Our team works directly with your account administrators to determine what information is published and ensure it accurately reflects your purchasing policies.</p>
+                    <p>If your organization needs to update messaging contentÃ¢â‚¬â€such as revised spending thresholds, new category restrictions, or updated contact informationÃ¢â‚¬â€please reach out to your Account Executive. They will coordinate the changes and publish the updated message on your behalf.</p>
+                    </div>
+                </details>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>What is the process if a CSM/SAM doesn't have access to the customer's account?</summary>
+            <div class="faq-answer">
+                <p><span class="badge badge-tbd">TBD</span> Ã¢â‚¬â€ Testing needed.</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>How are the messages being monitored?</summary>
+            <div class="faq-answer">
+                <p>The Guided Buying Team has access to the logs and can audit all activity in the console.</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>Can the admin make the changes themselves (self-service)?</summary>
+            <div class="faq-answer">
+                <p>No. Self-service editing by customer admins is not currently available. We are planning to add this capability to the roadmap, but at this time all changes are managed through the <a href="https://gb-console.corp.amazon.com/admin-announcement" target="_blank">Guided Buying Console</a> by ProServe or SAMs.</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>How do I discuss legal guidelines with my customer?</summary>
+            <div class="faq-answer">
+                <p>Amazon Business takes privacy and security very seriously. We want to ensure that we operate with everyone's best interest in mind, so we need to ensure the guardrails are in place. If you feel there is a valid exception, please open a SIM for review.</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>Are there any country-specific requirements?</summary>
+            <div class="faq-answer">
+                <p>Yes. Per Legal, Admin Messages in <strong>Japan</strong> and <strong>Mexico</strong> must begin with:</p>
+                <div class="callout" style="margin: 12px 0;">
+                    <em>"The following is a message from [AB customer name]"</em>
+                </div>
+                <p>Note: Japan is included in the pilot. Mexico and other countries will be included in the worldwide rollout.</p>
+            </div>
+        </details>
+    </section>
+
+</div>
+
+<footer>
+    Amazon Business | Admin Messaging | Internal Reference Ã¢â‚¬â€ Last updated June 2026
+</footer>
+
+</body>
+</html>
